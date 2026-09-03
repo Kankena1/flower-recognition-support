@@ -1,32 +1,340 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Flower Recognition — Support</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Flower Recognition 花朵识别 — 技术支持 / Technical Support">
+<title>Flower Recognition — 技术支持</title>
 <style>
-:root{--bg:#f7f8f5;--card:#fff;--text:#20251f;--muted:#687066;--accent:#58745a;--line:#e3e7e1}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
-.wrap{max-width:760px;margin:auto;padding:56px 22px 70px}header{text-align:center;margin-bottom:38px}
-.flower{font-size:48px}h1{margin:0;font-size:34px;letter-spacing:-.6px}.tagline{color:var(--muted);margin:10px 0 0}
-section{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:25px 26px;margin:16px 0}
-h2{margin:0 0 12px;font-size:21px}p{margin:8px 0}ul{margin:10px 0;padding-left:22px}li{margin:7px 0}
-a{color:var(--accent);font-weight:600;text-decoration:none}.contact{font-size:18px;padding:20px;border-radius:14px;background:#f0f4ef}
-footer{text-align:center;color:var(--muted);font-size:13px;margin-top:30px}
+  :root {
+    --bg: #f7f8f5;
+    --card: #ffffff;
+    --text: #20251f;
+    --muted: #687066;
+    --accent: #58745a;
+    --accent-light: #eef3ed;
+    --line: #e3e7e1;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display",
+                 "Segoe UI", "PingFang SC", "Hiragino Sans GB",
+                 "Microsoft YaHei", sans-serif;
+    line-height: 1.7;
+  }
+
+  .wrap {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 42px 20px 64px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .flower {
+    font-size: 50px;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 32px;
+    letter-spacing: -0.5px;
+  }
+
+  .tagline {
+    color: var(--muted);
+    margin: 10px 0 0;
+    font-size: 16px;
+  }
+
+  .language-switch {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 24px 0 30px;
+  }
+
+  .language-switch button {
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--muted);
+    padding: 8px 18px;
+    border-radius: 999px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .language-switch button:hover {
+    border-color: var(--accent);
+  }
+
+  .language-switch button.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+  }
+
+  section {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px 25px;
+    margin: 15px 0;
+  }
+
+  h2 {
+    margin: 0 0 12px;
+    font-size: 21px;
+  }
+
+  p {
+    margin: 8px 0;
+  }
+
+  ul {
+    margin: 10px 0 0;
+    padding-left: 22px;
+  }
+
+  li {
+    margin: 9px 0;
+  }
+
+  a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .contact {
+    margin-top: 15px;
+    padding: 17px 18px;
+    border-radius: 14px;
+    background: var(--accent-light);
+    font-size: 17px;
+  }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 13px;
+    margin-top: 28px;
+  }
+
+  [data-lang="en"] {
+    display: none;
+  }
+
+  body.english [data-lang="zh"] {
+    display: none;
+  }
+
+  body.english [data-lang="en"] {
+    display: block;
+  }
+
+  li[data-lang="en"] {
+    display: none;
+  }
+
+  body.english li[data-lang="en"] {
+    display: list-item;
+  }
+
+  @media (max-width: 600px) {
+    .wrap {
+      padding: 32px 15px 50px;
+    }
+
+    h1 {
+      font-size: 27px;
+    }
+
+    section {
+      padding: 21px 19px;
+    }
+  }
 </style>
 </head>
-<body><main class="wrap">
-<header><div class="flower">🌸</div><h1>Flower Recognition — Support</h1>
-<p class="tagline">Identify flowers, discover new species, and build your personal flower collection.</p></header>
-<section><h2>About the App</h2><p>Flower Recognition helps you identify flowers from photos and keep track of the flowers you discover. Take a photo or choose an image, view the recognition result, and collect successful discoveries in your flower collection.</p></section>
-<section><h2>Common Questions</h2><ul>
-<li><strong>Why didn't the app identify my flower?</strong><br>Recognition may be unavailable when an image does not provide enough information for a reliable identification. Try a clear, well-lit photo with the flower visible and in focus.</li>
-<li><strong>Why is the recognition result inaccurate?</strong><br>Image-based recognition is not perfect. Try another photo showing the flower from a different angle or with fewer distractions in the background.</li>
-<li><strong>Why can't the app access my camera or photos?</strong><br>Check your iPhone Settings and make sure the app has permission to access the Camera or Photos.</li>
-<li><strong>How do I save a flower to my collection?</strong><br>A successful recognition can unlock a flower card in the app's collection.</li>
-</ul></section>
-<section><h2>Contact Support</h2><p>If you encounter a bug or have a question, please contact us by email. Including your iPhone model and a short description of the issue can help us investigate it faster.</p>
-<div class="contact">📧 <a href="mailto:tianyuzhang824@gmail.com">tianyuzhang824@gmail.com</a></div></section>
-<section><h2>Feedback</h2><p>We welcome bug reports, suggestions, and feedback that can help improve the Flower Recognition experience.</p></section>
-<footer>© 2026 Flower Recognition. All rights reserved.</footer>
-</main></body></html>
+
+<body>
+<main class="wrap">
+
+  <header>
+    <div class="flower">🌸</div>
+
+    <h1>
+      <span data-lang="zh">花朵识别 — 技术支持</span>
+      <span data-lang="en">Flower Recognition — Support</span>
+    </h1>
+
+    <p class="tagline">
+      <span data-lang="zh">识别花朵，探索自然，建立属于你的花朵图鉴。</span>
+      <span data-lang="en">Identify flowers, discover nature, and build your personal flower collection.</span>
+    </p>
+  </header>
+
+  <div class="language-switch">
+    <button id="zhButton" class="active" onclick="setLanguage('zh')">中文</button>
+    <button id="enButton" onclick="setLanguage('en')">English</button>
+  </div>
+
+  <!-- About -->
+  <section>
+    <h2>
+      <span data-lang="zh">关于 App</span>
+      <span data-lang="en">About the App</span>
+    </h2>
+
+    <p data-lang="zh">
+      花朵识别帮助你通过照片识别花朵，并记录你发现的花朵。
+      你可以拍摄照片或从照片中选择图片，查看识别结果，并将成功识别的花朵收藏到自己的花朵图鉴中。
+    </p>
+
+    <p data-lang="en">
+      Flower Recognition helps you identify flowers from photos and keep track
+      of the flowers you discover. Take a photo or choose an image, view the
+      recognition result, and collect successful discoveries in your personal
+      flower collection.
+    </p>
+  </section>
+
+  <!-- FAQ -->
+  <section>
+    <h2>
+      <span data-lang="zh">常见问题</span>
+      <span data-lang="en">Common Questions</span>
+    </h2>
+
+    <ul>
+      <li data-lang="zh">
+        <strong>为什么 App 无法识别我的花朵？</strong><br>
+        当照片无法提供足够的信息进行可靠识别时，App 可能不会返回识别结果。
+        建议使用清晰、光线充足且花朵主体完整的照片。
+      </li>
+
+      <li data-lang="en">
+        <strong>Why didn't the app identify my flower?</strong><br>
+        Recognition may be unavailable when an image does not provide enough
+        information for a reliable identification. Try a clear, well-lit photo
+        with the flower visible and in focus.
+      </li>
+
+      <li data-lang="zh">
+        <strong>为什么识别结果可能不准确？</strong><br>
+        图像识别并非始终完美。如果结果不符合预期，可以尝试从不同角度拍摄一张更清晰的照片。
+      </li>
+
+      <li data-lang="en">
+        <strong>Why is the recognition result inaccurate?</strong><br>
+        Image-based recognition is not perfect. Try another photo showing the
+        flower from a different angle or with fewer distracting objects.
+      </li>
+
+      <li data-lang="zh">
+        <strong>为什么 App 无法访问相机或照片？</strong><br>
+        请前往 iPhone 的“设置”，检查是否已经允许 App 使用相机或访问照片。
+      </li>
+
+      <li data-lang="en">
+        <strong>Why can't the app access my camera or photos?</strong><br>
+        Open your iPhone Settings and make sure the app has permission to access
+        the Camera or Photos.
+      </li>
+
+      <li data-lang="zh">
+        <strong>如何保存花朵到我的图鉴？</strong><br>
+        成功识别后，对应的花朵卡片会被解锁并加入你的收藏。
+      </li>
+
+      <li data-lang="en">
+        <strong>How do I save a flower to my collection?</strong><br>
+        A successful recognition can unlock a flower card in your collection.
+      </li>
+    </ul>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>
+      <span data-lang="zh">联系我们</span>
+      <span data-lang="en">Contact Support</span>
+    </h2>
+
+    <p data-lang="zh">
+      如果你在使用过程中遇到问题，或者有功能建议，欢迎通过以下邮箱联系我们。
+      如果反馈问题，请尽可能提供你的 iPhone 型号以及问题的简要描述。
+    </p>
+
+    <p data-lang="en">
+      If you encounter a problem or have a suggestion, please contact us by
+      email. When reporting a problem, including your iPhone model and a short
+      description of the issue can help us investigate it faster.
+    </p>
+
+    <div class="contact">
+      📧
+      <a href="mailto:tianyuzhang824@gmail.com">
+        tianyuzhang824@gmail.com
+      </a>
+    </div>
+  </section>
+
+  <!-- Feedback -->
+  <section>
+    <h2>
+      <span data-lang="zh">问题反馈</span>
+      <span data-lang="en">Feedback</span>
+    </h2>
+
+    <p data-lang="zh">
+      我们欢迎 Bug 反馈、功能建议以及任何能够帮助改善花朵识别体验的意见。
+    </p>
+
+    <p data-lang="en">
+      We welcome bug reports, feature suggestions, and feedback that can help
+      improve the Flower Recognition experience.
+    </p>
+  </section>
+
+  <footer>
+    <span data-lang="zh">© 2026 花朵识别。保留所有权利。</span>
+    <span data-lang="en">© 2026 Flower Recognition. All rights reserved.</span>
+  </footer>
+
+</main>
+
+<script>
+function setLanguage(language) {
+  const isEnglish = language === "en";
+
+  document.body.classList.toggle("english", isEnglish);
+
+  document.documentElement.lang = isEnglish ? "en" : "zh-CN";
+
+  document.title = isEnglish
+    ? "Flower Recognition — Support"
+    : "花朵识别 — 技术支持";
+
+  document.getElementById("zhButton").classList.toggle("active", !isEnglish);
+  document.getElementById("enButton").classList.toggle("active", isEnglish);
+}
+</script>
+
+</body>
+</html>

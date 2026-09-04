@@ -3,191 +3,528 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Luvplants Privacy Policy" />
+  <meta name="description" content="Luvplants Privacy Policy / Luvplants 隐私政策" />
   <title>Privacy Policy - Luvplants</title>
+
   <style>
     * { box-sizing: border-box; }
+
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --green: #3fb950;
+      --green-border: #2ea043;
+      --blue: #58a6ff;
+    }
+
     body {
       margin: 0;
-      padding: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background: #0d1117;
-      color: #e6edf3;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.7;
     }
+
     .container {
-      max-width: 860px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 48px 24px 80px;
+      padding: 36px 22px 80px;
     }
-    .header { margin-bottom: 48px; }
+
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 24px;
+    }
+
+    .lang-switcher {
+      display: inline-flex;
+      padding: 4px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 14px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .lang-btn.active {
+      background: rgba(63, 185, 80, 0.12);
+      color: var(--green);
+    }
+
+    .header {
+      margin-bottom: 42px;
+    }
+
     .badge {
       display: inline-block;
       padding: 6px 12px;
-      margin-bottom: 18px;
-      border: 1px solid #2ea043;
+      margin-bottom: 16px;
+      border: 1px solid var(--green-border);
       border-radius: 999px;
-      color: #3fb950;
+      color: var(--green);
       font-size: 14px;
-      font-weight: 600;
+      font-weight: 700;
       background: rgba(46, 160, 67, 0.08);
     }
+
     h1 {
-      margin: 0 0 12px;
+      margin: 0 0 10px;
+      color: #fff;
       font-size: 42px;
-      line-height: 1.2;
-      color: #ffffff;
+      line-height: 1.15;
     }
+
     .subtitle {
       margin: 0;
-      color: #8b949e;
-      font-size: 16px;
+      color: var(--muted);
+      font-size: 15px;
     }
+
     .card {
       padding: 28px;
-      margin-bottom: 24px;
-      background: #161b22;
-      border: 1px solid #30363d;
+      margin-bottom: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
       border-radius: 16px;
     }
+
     h2 {
-      margin-top: 0;
-      margin-bottom: 14px;
+      margin: 0 0 14px;
+      color: #fff;
       font-size: 22px;
-      color: #ffffff;
     }
+
     p { margin: 10px 0; }
-    ul { padding-left: 24px; }
+
+    ul {
+      margin: 10px 0;
+      padding-left: 24px;
+    }
+
     li { margin: 8px 0; }
-    strong { color: #ffffff; }
-    a { color: #58a6ff; text-decoration: none; }
+
+    strong { color: #fff; }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
     a:hover { text-decoration: underline; }
+
     .highlight {
-      padding: 18px;
       margin-top: 18px;
-      border-left: 4px solid #3fb950;
+      padding: 18px;
+      border-left: 4px solid var(--green);
       border-radius: 8px;
       background: rgba(46, 160, 67, 0.08);
     }
+
     .footer {
-      margin-top: 48px;
-      padding-top: 24px;
-      border-top: 1px solid #30363d;
-      color: #8b949e;
+      margin-top: 44px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
       font-size: 14px;
       text-align: center;
     }
+
+    .lang-section { display: none; }
+    .lang-section.active { display: block; }
+
     @media (max-width: 600px) {
-      .container { padding: 32px 18px 60px; }
+      .container { padding: 24px 16px 60px; }
+      .topbar { justify-content: center; }
       h1 { font-size: 32px; }
       .card { padding: 22px; }
     }
   </style>
 </head>
+
 <body>
   <main class="container">
-    <header class="header">
-      <div class="badge">Luvplants</div>
-      <h1>Privacy Policy</h1>
-      <p class="subtitle">Last Updated: September 3, 2026</p>
-    </header>
 
-    <section class="card">
-      <h2>1. Introduction</h2>
-      <p>This Privacy Policy explains how <strong>Luvplants</strong> ("the App", "we", "our", or "us") handles information when you use the App.</p>
-      <p>We respect your privacy and have designed Luvplants so that plant image recognition is performed locally on your device.</p>
-      <div class="highlight">Luvplants does not require an account and, in the current version of the App, plant photographs are not uploaded to our servers for plant identification.</div>
+    <div class="topbar">
+      <div class="lang-switcher" aria-label="Language selector">
+        <button class="lang-btn active" id="btn-en" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" id="btn-zh" onclick="setLanguage('zh')">中文</button>
+      </div>
+    </div>
+
+    <!-- English -->
+    <section id="lang-en" class="lang-section active" lang="en">
+      <header class="header">
+        <div class="badge">Luvplants</div>
+        <h1>Privacy Policy</h1>
+        <p class="subtitle">Last Updated: September 3, 2026</p>
+      </header>
+
+      <section class="card">
+        <h2>1. Introduction</h2>
+        <p>
+          This Privacy Policy explains how <strong>Luvplants</strong>
+          ("the App", "we", "our", or "us") handles information when you use the App.
+        </p>
+        <p>
+          We respect your privacy and have designed Luvplants so that plant image recognition
+          is performed locally on your device.
+        </p>
+        <div class="highlight">
+          Luvplants does not require an account and, in the current version of the App,
+          plant photographs are not uploaded to our servers for plant identification.
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>2. Camera Access</h2>
+        <p>Luvplants may request permission to access your device's camera.</p>
+        <p>Camera access is used only when you choose to take a photograph of a plant for identification.</p>
+        <p>You may deny or revoke camera permission at any time through your device settings.</p>
+      </section>
+
+      <section class="card">
+        <h2>3. Photo Library Access</h2>
+        <p>
+          Luvplants allows you to select an existing photograph from your device's photo library
+          for plant identification.
+        </p>
+        <p>
+          The App only processes photographs that you actively choose through the image selection interface.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>4. Plant Image Recognition</h2>
+        <p>
+          Plant images captured or selected through Luvplants are processed using an on-device
+          machine learning model.
+        </p>
+        <p>
+          Plant identification is performed locally on your device.
+          The current version of the App does not send plant photographs to our servers for image recognition.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>5. Information Stored on Your Device</h2>
+        <p>When a plant is successfully identified, Luvplants may store information locally on your device, including:</p>
+        <ul>
+          <li>Plant photographs;</li>
+          <li>Thumbnail versions of plant photographs;</li>
+          <li>The identified plant name;</li>
+          <li>The identification confidence score;</li>
+          <li>The date of identification;</li>
+          <li>The number of times a plant has been discovered.</li>
+        </ul>
+        <p>
+          This information is used to provide features such as your plant collection,
+          identification history, and plant discovery cards.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>6. Data Transmission and Sharing</h2>
+        <p>
+          In the current version of Luvplants, we do not operate a server that receives
+          your plant photographs or locally stored plant identification history.
+        </p>
+        <p>We do not sell your personal information.</p>
+        <p>We do not use your plant photographs or identification history for advertising or user tracking.</p>
+        <p>
+          We do not intentionally share your locally stored plant records with advertising networks,
+          data brokers, or third-party analytics providers.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>7. Accounts and Personal Information</h2>
+        <p>The current version of Luvplants does not require users to create an account.</p>
+        <p>
+          The App does not intentionally request personal information such as your name,
+          email address, telephone number, or physical address in order to use its core plant identification features.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>8. Advertising, Analytics, and Tracking</h2>
+        <p>
+          The current version of Luvplants does not intentionally include third-party advertising systems
+          or behavioral advertising features.
+        </p>
+        <p>Luvplants does not use your data for cross-app or cross-website tracking.</p>
+      </section>
+
+      <section class="card">
+        <h2>9. Data Retention and Deletion</h2>
+        <p>Plant photographs and identification records are stored locally on your device.</p>
+        <p>Luvplants provides features that allow you to delete plant records and associated images.</p>
+        <p>
+          Deleting the App may also remove locally stored App data, subject to Apple's operating system behavior
+          and any backup settings controlled by the user.
+        </p>
+        <p>
+          Because the current version of Luvplants does not maintain user accounts or store these records
+          on our own servers, we generally do not possess a remote copy of your local plant collection.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>10. Device Permissions</h2>
+        <p>You can manage permissions granted to Luvplants through the Settings app on your device.</p>
+        <p>If camera access is disabled, features that require taking new plant photographs may not function.</p>
+      </section>
+
+      <section class="card">
+        <h2>11. Children's Privacy</h2>
+        <p>Luvplants is not designed to intentionally collect personal information from children.</p>
+        <p>
+          The current version of the App does not require an account or personal profile
+          to use its core plant identification features.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>12. Changes to This Privacy Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time if Luvplants' functionality,
+          data practices, or legal requirements change.
+        </p>
+        <p>
+          If future versions introduce features such as user accounts, cloud storage,
+          server-based image recognition, advertising, analytics, or other online services,
+          this Privacy Policy may be updated accordingly.
+        </p>
+        <p>
+          The "Last Updated" date at the top of this page indicates when this Privacy Policy
+          was most recently revised.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>13. Contact Us</h2>
+        <p>
+          If you have any questions about this Privacy Policy or Luvplants' privacy practices,
+          please contact us:
+        </p>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:tianyuzhang824@gmail.com">tianyuzhang824@gmail.com</a>
+        </p>
+      </section>
     </section>
 
-    <section class="card">
-      <h2>2. Camera Access</h2>
-      <p>Luvplants may request permission to access your device's camera.</p>
-      <p>Camera access is used only when you choose to take a photograph of a plant for identification.</p>
-      <p>You may deny or revoke camera permission at any time through your device settings.</p>
-    </section>
+    <!-- Chinese -->
+    <section id="lang-zh" class="lang-section" lang="zh-CN">
+      <header class="header">
+        <div class="badge">Luvplants</div>
+        <h1>隐私政策</h1>
+        <p class="subtitle">最后更新日期：2026年9月3日</p>
+      </header>
 
-    <section class="card">
-      <h2>3. Photo Library Access</h2>
-      <p>Luvplants allows you to select an existing photograph from your device's photo library for plant identification.</p>
-      <p>The App only processes photographs that you actively choose through the image selection interface.</p>
-    </section>
+      <section class="card">
+        <h2>1. 简介</h2>
+        <p>
+          本隐私政策说明 <strong>Luvplants</strong>（以下简称“本应用”“我们”或“我们的”）
+          在您使用本应用时如何处理相关信息。
+        </p>
+        <p>
+          我们重视您的隐私。Luvplants 的植物图像识别功能采用设备端本地处理方式。
+        </p>
+        <div class="highlight">
+          Luvplants 当前版本无需注册账号，且用于植物识别的照片不会上传至我们的服务器。
+        </div>
+      </section>
 
-    <section class="card">
-      <h2>4. Plant Image Recognition</h2>
-      <p>Plant images captured or selected through Luvplants are processed using an on-device machine learning model.</p>
-      <p>Plant identification is performed locally on your device. The current version of the App does not send plant photographs to our servers for image recognition.</p>
-    </section>
+      <section class="card">
+        <h2>2. 相机权限</h2>
+        <p>Luvplants 可能会请求访问您设备的相机。</p>
+        <p>仅当您主动选择拍摄植物照片进行识别时，本应用才会使用相机权限。</p>
+        <p>您可以随时在设备设置中拒绝或撤销相机权限。</p>
+      </section>
 
-    <section class="card">
-      <h2>5. Information Stored on Your Device</h2>
-      <p>When a plant is successfully identified, Luvplants may store information locally on your device, including:</p>
-      <ul>
-        <li>Plant photographs;</li>
-        <li>Thumbnail versions of plant photographs;</li>
-        <li>The identified plant name;</li>
-        <li>The identification confidence score;</li>
-        <li>The date of identification;</li>
-        <li>The number of times a plant has been discovered.</li>
-      </ul>
-      <p>This information is used to provide features such as your plant collection, identification history, and plant discovery cards.</p>
-    </section>
+      <section class="card">
+        <h2>3. 照片图库访问</h2>
+        <p>
+          Luvplants 允许您从设备的照片图库中选择已有照片，用于植物识别。
+        </p>
+        <p>
+          本应用只会处理您通过图片选择界面主动选择的照片。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>6. Data Transmission and Sharing</h2>
-      <p>In the current version of Luvplants, we do not operate a server that receives your plant photographs or locally stored plant identification history.</p>
-      <p>We do not sell your personal information.</p>
-      <p>We do not use your plant photographs or identification history for advertising or user tracking.</p>
-      <p>We do not intentionally share your locally stored plant records with advertising networks, data brokers, or third-party analytics providers.</p>
-    </section>
+      <section class="card">
+        <h2>4. 植物图像识别</h2>
+        <p>
+          通过 Luvplants 拍摄或选择的植物图片会使用设备端机器学习模型进行处理。
+        </p>
+        <p>
+          植物识别在您的设备本地完成。
+          当前版本不会将植物照片发送到我们的服务器进行识别。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>7. Accounts and Personal Information</h2>
-      <p>The current version of Luvplants does not require users to create an account.</p>
-      <p>The App does not intentionally request personal information such as your name, email address, telephone number, or physical address in order to use its core plant identification features.</p>
-    </section>
+      <section class="card">
+        <h2>5. 存储在您设备上的信息</h2>
+        <p>当植物被成功识别后，Luvplants 可能会在您的设备本地保存以下信息：</p>
+        <ul>
+          <li>植物照片；</li>
+          <li>植物照片的缩略图；</li>
+          <li>识别出的植物名称；</li>
+          <li>识别置信度；</li>
+          <li>识别日期；</li>
+          <li>同一种植物被发现的次数。</li>
+        </ul>
+        <p>
+          这些信息用于提供植物收藏、识别历史和植物卡片等应用功能。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>8. Advertising, Analytics, and Tracking</h2>
-      <p>The current version of Luvplants does not intentionally include third-party advertising systems or behavioral advertising features.</p>
-      <p>Luvplants does not use your data for cross-app or cross-website tracking.</p>
-    </section>
+      <section class="card">
+        <h2>6. 数据传输与共享</h2>
+        <p>
+          在当前版本中，Luvplants 不运营用于接收您的植物照片或本地植物识别记录的服务器。
+        </p>
+        <p>我们不会出售您的个人信息。</p>
+        <p>我们不会将您的植物照片或识别历史用于广告或用户追踪。</p>
+        <p>
+          我们不会主动将您本地存储的植物记录分享给广告网络、数据经纪商或第三方分析服务提供商。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>9. Data Retention and Deletion</h2>
-      <p>Plant photographs and identification records are stored locally on your device.</p>
-      <p>Luvplants provides features that allow you to delete plant records and associated images.</p>
-      <p>Deleting the App may also remove locally stored App data, subject to Apple's operating system behavior and any backup settings controlled by the user.</p>
-      <p>Because the current version of Luvplants does not maintain user accounts or store these records on our own servers, we generally do not possess a remote copy of your local plant collection.</p>
-    </section>
+      <section class="card">
+        <h2>7. 账号与个人信息</h2>
+        <p>当前版本的 Luvplants 不要求用户创建账号。</p>
+        <p>
+          为使用核心植物识别功能，本应用不会主动要求您提供姓名、电子邮箱地址、
+          电话号码或家庭住址等个人信息。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>10. Device Permissions</h2>
-      <p>You can manage permissions granted to Luvplants through the Settings app on your device.</p>
-      <p>If camera access is disabled, features that require taking new plant photographs may not function.</p>
-    </section>
+      <section class="card">
+        <h2>8. 广告、分析与追踪</h2>
+        <p>
+          当前版本的 Luvplants 不主动集成第三方广告系统或行为广告功能。
+        </p>
+        <p>
+          Luvplants 不会使用您的数据进行跨 App 或跨网站追踪。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>11. Children's Privacy</h2>
-      <p>Luvplants is not designed to intentionally collect personal information from children.</p>
-      <p>The current version of the App does not require an account or personal profile to use its core plant identification features.</p>
-    </section>
+      <section class="card">
+        <h2>9. 数据保留与删除</h2>
+        <p>植物照片和识别记录存储在您的设备本地。</p>
+        <p>Luvplants 提供删除植物记录及相关图片的功能。</p>
+        <p>
+          删除本应用时，本地存储的应用数据也可能被删除，
+          具体取决于 Apple 操作系统行为以及由用户控制的设备备份设置。
+        </p>
+        <p>
+          由于当前版本不维护用户账号，也不会将这些记录存储在我们的服务器上，
+          因此我们通常不会持有您本地植物收藏的远程副本。
+        </p>
+      </section>
 
-    <section class="card">
-      <h2>12. Changes to This Privacy Policy</h2>
-      <p>We may update this Privacy Policy from time to time if Luvplants' functionality, data practices, or legal requirements change.</p>
-      <p>If future versions introduce features such as user accounts, cloud storage, server-based image recognition, advertising, analytics, or other online services, this Privacy Policy may be updated accordingly.</p>
-      <p>The "Last Updated" date at the top of this page indicates when this Privacy Policy was most recently revised.</p>
-    </section>
+      <section class="card">
+        <h2>10. 设备权限管理</h2>
+        <p>您可以通过设备的“设置”应用管理授予 Luvplants 的权限。</p>
+        <p>如果关闭相机权限，需要拍摄新植物照片的功能可能无法使用。</p>
+      </section>
 
-    <section class="card">
-      <h2>13. Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy or Luvplants' privacy practices, please contact us:</p>
-      <p><strong>Email:</strong> <a href="mailto:tianyuzhang824@gmail.com">tianyuzhang824@gmail.com</a></p>
+      <section class="card">
+        <h2>11. 儿童隐私</h2>
+        <p>Luvplants 并非以主动收集儿童个人信息为目的进行设计。</p>
+        <p>
+          当前版本无需用户创建账号或个人资料即可使用核心植物识别功能。
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>12. 本隐私政策的变更</h2>
+        <p>
+          如果 Luvplants 的功能、数据处理方式或相关法律要求发生变化，
+          我们可能会不时更新本隐私政策。
+        </p>
+        <p>
+          如果未来版本加入用户账号、云存储、服务器端图像识别、广告、
+          数据分析或其他在线服务，我们可能会相应更新本隐私政策。
+        </p>
+        <p>
+          页面顶部的“最后更新日期”表示本隐私政策最近一次修订的时间。
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>13. 联系我们</h2>
+        <p>
+          如果您对本隐私政策或 Luvplants 的隐私处理方式有任何疑问，请联系我们：
+        </p>
+        <p>
+          <strong>电子邮箱：</strong>
+          <a href="mailto:tianyuzhang824@gmail.com">tianyuzhang824@gmail.com</a>
+        </p>
+      </section>
     </section>
 
     <footer class="footer">
       <p>© 2026 Luvplants. All rights reserved.</p>
     </footer>
+
   </main>
+
+  <script>
+    function setLanguage(lang) {
+      const enSection = document.getElementById("lang-en");
+      const zhSection = document.getElementById("lang-zh");
+      const enBtn = document.getElementById("btn-en");
+      const zhBtn = document.getElementById("btn-zh");
+
+      if (lang === "zh") {
+        enSection.classList.remove("active");
+        zhSection.classList.add("active");
+        enBtn.classList.remove("active");
+        zhBtn.classList.add("active");
+        document.documentElement.lang = "zh-CN";
+        document.title = "隐私政策 - Luvplants";
+      } else {
+        zhSection.classList.remove("active");
+        enSection.classList.add("active");
+        zhBtn.classList.remove("active");
+        enBtn.classList.add("active");
+        document.documentElement.lang = "en";
+        document.title = "Privacy Policy - Luvplants";
+      }
+
+      localStorage.setItem("luvplantsPrivacyLanguage", lang);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    (function () {
+      const saved = localStorage.getItem("luvplantsPrivacyLanguage");
+      if (saved === "zh" || saved === "en") {
+        setLanguage(saved);
+        return;
+      }
+
+      const browserLang = (navigator.language || "").toLowerCase();
+      if (browserLang.startsWith("zh")) {
+        setLanguage("zh");
+      }
+    })();
+  </script>
 </body>
 </html>
